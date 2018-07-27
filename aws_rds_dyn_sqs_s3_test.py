@@ -1,13 +1,14 @@
 import boto3
 import yaml
+import pymysql
 
 with open('aws_rds_dyn_sqs_s3_test.yaml', 'r') as f:
     config = yaml.load(f)
 print(config)
 
-rds = boto3.client('rds')
+rds = boto3.client('rds', region_name='us-east-1')
 dbs = rds.describe_db_instances()
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 sqs = boto3.resource('sqs',region_name='us-east-1')
 s3 = boto3.resource('s3', 'us-east-1')
 queue = sqs.get_queue_by_name(QueueName='test.fifo')
