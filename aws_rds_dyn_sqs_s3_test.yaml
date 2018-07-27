@@ -1,0 +1,14 @@
+---
+#a description of aws ec2 instance
+
+ami: ami-a4dc46db
+init: None
+role: arn:aws:iam::400029180276:role/worker_full_access
+region: us-east-1a
+type: t2.micro
+securityId: ['sg-861b62cc']
+key: DLNAkey
+securityGroup: ['test_web_server_security_group']
+name: test_app
+subnetId: subnet-0a74c856
+
